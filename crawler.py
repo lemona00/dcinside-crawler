@@ -27,7 +27,7 @@ class Crawl:
         return url_get
 
     def get_tags(self, first, last):
-
+        print("준비중...")
         posts = list()
 
         for page in range(first, last+1):
@@ -36,13 +36,14 @@ class Crawl:
             soup = BeautifulSoup(req.text, "html.parser")
             posts.append(soup.find_all('tr', {'class': 'ub-content us-post'}))
 
-            print(page, "페이지 완료")
+            print(page, "페이지 수집 완료")
             time.sleep(1.5)
 
         return posts
 
     def write(self, url, posts: list, tag):
 
+        print("데이터를 파일에 저장하는 중입니다...")
         title = list()
         num = list()
         nick = list()
@@ -66,6 +67,7 @@ class Crawl:
                 ), "https://gall.dcinside.com"+title[k].get('href'))
                 f.write(string)
         f.close()
+        print("완료!")
 
     def run(self, fpage: int, lpage: int, url, tag):
         posts = self.get_tags(fpage, lpage)
