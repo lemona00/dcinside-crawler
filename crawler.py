@@ -36,8 +36,8 @@ class Crawl:
             soup = BeautifulSoup(req.text, "html.parser")
             posts.append(soup.find_all('tr', {'class': 'ub-content us-post'}))
 
-            print(page, "페이지 수집 완료")
-            time.sleep(1.5)
+            print(page, "페이지 수집 완료 (%d of %d)"%(page,last))
+            time.sleep(2)
 
         return posts
 

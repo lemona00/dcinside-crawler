@@ -51,16 +51,19 @@ class Crawler(QWidget):
         self.page_end_label = QLabel(self)
         self.page_end_label.setText("페이지")
 
-        self.page_spin_start.setGeometry(10, 110, 30, 20)
+        self.page_spin_start.setGeometry(10, 110, 50, 20)
 
-        self.page_start_label.setGeometry(50, 110, 60, 20)
+        self.page_start_label.setGeometry(60, 110, 60, 20)
 
-        self.page_spin_end.setGeometry(110, 110, 30, 20)
+        self.page_spin_end.setGeometry(120, 110, 50, 20)
 
-        self.page_end_label.setGeometry(160, 110, 60, 20)
+        self.page_end_label.setGeometry(170, 110, 60, 20)
 
+        # 스핀박스 범위 지정
         self.page_spin_start.setMinimum(1)
         self.page_spin_end.setMinimum(1)
+        self.page_spin_start.setMaximum(999)
+        self.page_spin_end.setMaximum(999)
 
         self.page_spin_start.valueChanged.connect(self.spin_value_changed)
         self.page_spin_end.valueChanged.connect(self.spin_value_changed)
